@@ -3,7 +3,8 @@ from tablero import Tablero
 
 class Juego:
     def __init__(self):
-        self.lanzar_ataque(4,2)
+        self.lanzar_ataque(9, 9)
+
 
 
     def inicializar_naves(self):

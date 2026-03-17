@@ -6,4 +6,8 @@ class Nave:
 
 
     def recibir_disparo(self):
-        pass
+        self.vida -= 1
+        print(f"[LOG] Vidas restantes de {self.nombre}: {self.vida}")
+
+        if self.vida == 0:
+            print(f"[LOG] Nave hundida")
