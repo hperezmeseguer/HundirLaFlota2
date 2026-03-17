@@ -5,7 +5,6 @@ class Tablero:
         self.AGUA = 0
         self.TOCADO = 1
         self.HUNDIDO = 2
-        pass
 
         por1 = Nave("Enterprise", "portaaviones", 5)
 
@@ -30,6 +29,7 @@ class Tablero:
             [None, None, None, None, None, None, None, None, None, None],
             [None, fra3, fra3, fra3, None, sub4, None, None, None, sub2]
         ]
+
 
     def colocar_nave(self, nave, x, y, orientacion):
         pass
