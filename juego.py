@@ -20,7 +20,7 @@ class Juego:
 
     def lanzar_ataque(self, x, y):
         print(f"Atacando {x}, {y}")
-        objeto_tablero = Tablero()
+        obj_tablero = Tablero()
         resultado = obj_tablero.comprobar_impacto(x, y)
         self.mostrar_resultado(resultado)
 
