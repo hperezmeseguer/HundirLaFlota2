@@ -44,4 +44,4 @@ class Tablero:
             print(f"[LOG] {self.casillero[x][y].nombre} Tocado")
 
             if self.casillero[x][y].recibir_disparo():
-                print(f"[LOG] {self.casillero[x][y].nombre} Hundido")
+                print(f"[LOG] {self.casillero[x][y].nombre} hundido")
