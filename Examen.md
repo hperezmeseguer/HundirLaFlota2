@@ -6,4 +6,5 @@
 - Al volver a atacar la coordenada (1,4) ya nos avisa de que disparamos anteriormente ese punto.
 - Al atacar las 5 coordenadas del portaaviones nos devuelve hundido, como ha de ser.
 - Al atacar la coordenada (1,6) nos da agua, como se indicó en el código.
+
 ![img.png](img.png)
