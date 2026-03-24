@@ -3,12 +3,13 @@ from casilla import Casilla
 
 class Tablero:
     def __init__(self):
-        self.AGUA = 0
-        self.TOCADO = 1
-        self.HUNDIDO = 2
+        self.AGUA = 0 # Ponemos un valor a agua
+        self.TOCADO = 1 # Ponemos un valor a tocado
+        self.HUNDIDO = 2 # Ponemos un valor a hundido
 
-        # NAVES
-        por1 = Nave("Destructor", "portaaviones", 5)
+        # Creación de las naves
+
+        por1 = Nave("Destructor", "portaaviones", 5) # añadimos el nombre, tipo y vida de cada nave
         fra1 = Nave("Bismarck", "fragata", 3)
         fra2 = Nave("Prince of Wales", "fragata", 3)
         fra3 = Nave("Graf Spee", "fragata", 3)
@@ -18,7 +19,8 @@ class Tablero:
         sub3 = Nave("U-505", "submarino", 1)
         sub4 = Nave("U-534", "submarino", 1)
 
-        # TABLERO
+        # Tablero sobre el que se posicionarán las naves
+
         self.casillero = [
             [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
 
@@ -68,6 +70,8 @@ class Tablero:
         self.casillero[9][9].nave = sub2
         self.casillero[7][6].nave = sub3
         self.casillero[9][5].nave = sub4
+
+    #Metodo que comprueba el impacto en el tablero
 
     def comprobar_impacto(self, x, y):
         print(f"Impacto en ({x},{y})")
