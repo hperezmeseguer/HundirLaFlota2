@@ -1,13 +1,14 @@
 from nave import Nave
+from casilla import Casilla
 
 class Tablero:
-    def __init__(self, tamano=10):
+    def __init__(self):
         self.AGUA = 0
         self.TOCADO = 1
         self.HUNDIDO = 2
 
-        por1 = Nave("Enterprise", "portaaviones", 5)
-
+        # NAVES
+        por1 = Nave("Destructor", "portaaviones", 5)
         fra1 = Nave("Bismarck", "fragata", 3)
         fra2 = Nave("Prince of Wales", "fragata", 3)
         fra3 = Nave("Graf Spee", "fragata", 3)
@@ -17,31 +18,57 @@ class Tablero:
         sub3 = Nave("U-505", "submarino", 1)
         sub4 = Nave("U-534", "submarino", 1)
 
+        # TABLERO
         self.casillero = [
-            [None, None, None, None, None, None, None, None, None, None],
-            [None, por1, por1, por1, por1, por1, None, None, None, None],
-            [None, None, None, None, None, None, None, None, None, None],
-            [None, None, None, fra1, None, None, None, None, None, None],
-            [None, None, None, fra1, None, None, sub1, None, None, None],
-            [None, None, None, fra1, None, None, None, None, None, None],
-            [None, None, None, None, None, None, None, None, None, None],
-            [None, fra2, fra2, fra2, None, None, sub3, None, None, None],
-            [None, None, None, None, None, None, None, None, None, None],
-            [None, fra3, fra3, fra3, None, sub4, None, None, None, sub2]
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()],
+
+            [Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla(), Casilla()]
         ]
 
 
-    def colocar_nave(self, nave, x, y, orientacion):
-        pass
 
-    def comprobar_impacto(self, x ,y):
-        print(f"[LOG] estoy en tablero comprobando impacto ({x}, {y})")
+        # Casillas que ocupa el portaaviones
+        self.casillero[1][1].nave = por1
+        self.casillero[1][2].nave = por1
+        self.casillero[1][3].nave = por1
+        self.casillero[1][4].nave = por1
+        self.casillero[1][5].nave = por1
 
-        if self.casillero[x][y] is None:
-            print("[LOG] Agua")
-            return self.AGUA
-        else:
-            print(f"[LOG] {self.casillero[x][y].nombre} Tocado")
+        # Casillas que ocupan las fragatas
+        self.casillero[3][3].nave = fra1
+        self.casillero[4][3].nave = fra1
+        self.casillero[5][3].nave = fra1
 
-            if self.casillero[x][y].recibir_disparo():
-                print(f"[LOG] {self.casillero[x][y].nombre} hundido")
+        self.casillero[7][1].nave = fra2
+        self.casillero[7][2].nave = fra2
+        self.casillero[7][3].nave = fra2
+
+        self.casillero[9][1].nave = fra3
+        self.casillero[9][2].nave = fra3
+        self.casillero[9][3].nave = fra3
+
+        # Casillas que ocupan los submarinos
+        self.casillero[4][6].nave = sub1
+        self.casillero[9][9].nave = sub2
+        self.casillero[7][6].nave = sub3
+        self.casillero[9][5].nave = sub4
+
+    def comprobar_impacto(self, x, y):
+        print(f"Impacto en ({x},{y})")
+        return self.casillero[x][y].disparar()
